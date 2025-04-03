@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+      func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions:
+                       [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+          
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        print(db)
+          
+          IQKeyboardManager.shared.isEnabled = true
+          //IQKeyboardManager.shared.enableAutoToolbar = false
+          IQKeyboardManager.shared.resignOnTouchOutside = true
         return true
-    }
+      }
 
     // MARK: UISceneSession Lifecycle
 
